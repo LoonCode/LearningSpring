@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!-- 注册事件监听器 -->
+    <bean id="eventDispatchListener"
+          class="com.loon.common.spring.listener.EventDispatchListener"/>
+    <bean id="eventDispatchConfigInfo"
+          class="com.loon.common.spring.listener.EventDispatchConfigInfo">
+        <property name="listenerList">
+            <list>
+                <value>securityListener</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 安全事件监听器 -->
+    <bean id="securityListener" class="com.loon.common.spring.listener.EventHandlerConfigInfo">
+        <property name="eventHandlerMap">
+            <map>
+                <entry key="com.loon.model.security.event.LoginEvent"
+                       value="securityService.onLoginEvent"/>
+                <entry key="com.loon.model.security.event.LogoutEvent"
+                       value="securityService.onLogoutEvent"/>
+            </map>
+
+        </property>
+    </bean>
+
+</beans>
