@@ -22,6 +22,7 @@ public class AccountTest {
         Account account = new Account();
         account.setObjectId(UUID.randomUUID().toString());
         account.setBalance(1);
+
         accountService.createAccount(account);
 
     }
