@@ -18,9 +18,9 @@
     <bean id="securityListener" class="com.loon.common.spring.listener.EventHandlerConfigInfo">
         <property name="eventHandlerMap">
             <map>
-                <entry key="com.loon.model.security.event.LoginEvent"
+                <entry key="com.loon.domain.security.event.LoginEvent"
                        value="securityService.onLoginEvent"/>
-                <entry key="com.loon.model.security.event.LogoutEvent"
+                <entry key="com.loon.domain.security.event.LogoutEvent"
                        value="securityService.onLogoutEvent"/>
             </map>
 
